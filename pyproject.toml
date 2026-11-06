@@ -1,6 +1,6 @@
 [project]
 name = "kaggle-llm"
-version = "0.1.0"
+version = "0.0.0"
 description = "Run an Ollama LLM on a free Kaggle GPU and use it from your code and agents."
 readme = "README.md"
 license = "MIT"
@@ -37,12 +37,22 @@ dev = [
     "pytest>=8",
     "ruff>=0.6",
 ]
+docs = [
+    "mkdocs-material>=9.7.7",
+    "mkdocstrings[python]>=1.0.6",
+]
 
 [tool.ruff]
 line-length = 110
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[project.urls]
+Homepage = "https://github.com/Gatmatz/kaggle-llm"
+Documentation = "https://gatmatz.github.io/kaggle-llm/"
+Issues = "https://github.com/Gatmatz/kaggle-llm/issues"
+Changelog = "https://github.com/Gatmatz/kaggle-llm/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["uv_build>=0.12.19,<0.13.0"]

@@ -15,6 +15,8 @@ from kaggle_llm.errors import ConfigError
 
 @dataclass(frozen=True)
 class Settings:
+    """All settings. Usually built for you by `configure()` and `get_settings()`."""
+
     ngrok_authtoken: str | None = None
     """ngrok authtoken (required to start a server)."""
     ngrok_domain: str | None = None
