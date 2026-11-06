@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Iterator
 from contextlib import contextmanager
+from importlib.metadata import version
 
 from kaggle_llm.config import Settings, configure, get_settings
 from kaggle_llm.errors import (
@@ -15,7 +16,7 @@ from kaggle_llm.errors import (
 )
 from kaggle_llm.lifecycle import NGROK_HEADERS, Server, Status, connect, start, status, stop, url
 
-__version__ = "0.1.0"
+__version__ = version("kaggle-llm")
 
 __all__ = [
     "NGROK_HEADERS",
