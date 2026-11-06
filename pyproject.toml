@@ -1,0 +1,54 @@
+[project]
+name = "kaggle-llm"
+version = "0.1.0"
+description = "Run an Ollama LLM on a free Kaggle GPU and use it from your code and agents."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Gatmatz", email = "gatmatzidi@gmail.com" }
+]
+requires-python = ">=3.10"
+keywords = ["kaggle", "ollama", "llm", "ngrok", "agents", "gpu", "openai-compatible"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+dependencies = [
+    "kaggle>=1.7",
+    "requests>=2.31",
+]
+
+[project.scripts]
+kaggle-llm = "kaggle_llm.cli:main"
+
+[dependency-groups]
+dev = [
+    "aiohttp>=3.9",
+    "openai>=1.40",
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[tool.ruff]
+line-length = 110
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.ruff.lint.per-file-ignores]
+# Runs inside the Kaggle notebook: it must keep going (and log) whatever a cleanup or warm-up raises.
+"src/kaggle_llm/remote/server.py" = ["BLE001", "SIM115"]
+"tests/*" = ["S102"]
