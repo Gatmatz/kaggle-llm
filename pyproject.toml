@@ -1,6 +1,6 @@
 [project]
 name = "kaggle-llm"
-version = "0.0.0"
+version = "0.1.0"
 description = "Run an Ollama LLM on a free Kaggle GPU and use it from your code and agents."
 readme = "README.md"
 license = "MIT"
